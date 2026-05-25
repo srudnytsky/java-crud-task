@@ -41,3 +41,12 @@ bin/
 
 ### Mac OS ###
 .DS_Store
+
+.gradle
+.idea
+build
+out
+*.iml
+
+test.mv.db
+test.trace.db
