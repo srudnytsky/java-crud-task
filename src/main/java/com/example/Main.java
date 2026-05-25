@@ -1,29 +1,43 @@
 package com.example;
 
+import com.example.services.ClientService;
+
 public class Main {
     public static void main(String[] args) {
 
-        DatabaseQueryService service =
-                new DatabaseQueryService();
+       FlywayConfig.migrate();
+
+        ClientService clientService =
+                new ClientService();
+
+        long newClientId =
+                clientService.create("Netflix");
 
         System.out.println(
-                service.findMaxProjectsClient()
+                "Created client ID: " + newClientId
         );
 
         System.out.println(
-                service.findLongestProject()
+                clientService.getById(newClientId)
+        );
+
+        clientService.setName(
+                newClientId,
+                "OpenAI"
         );
 
         System.out.println(
-                service.findMaxSalaryWorker()
+                clientService.getById(newClientId)
         );
 
         System.out.println(
-                service.findYoungestEldestWorkers()
+                clientService.listAll()
         );
 
+        clientService.deleteById(newClientId);
+
         System.out.println(
-                service.printProjectPrices()
+                clientService.listAll()
         );
     }
 }

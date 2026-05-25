@@ -2,11 +2,10 @@ package com.example;
 
 import com.example.dto.*;
 import com.example.utils.FileUtils;
-
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 public class DatabaseQueryService {
 
     private final Connection connection =
